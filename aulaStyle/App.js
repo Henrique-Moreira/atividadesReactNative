@@ -1,18 +1,21 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import Header from './components/Header';
-import Listagens from './components/Listagens';
+import Categorias from './components/Categorias';
+import Detalhes from './components/Detalhes';
 
+const Stack = createNativeStackNavigator();
 
-const LotsOfStyles = () => {
+const App = () => {
   return (
-    <View style={styles.geral}>
-      <View style={styles.container}>
-        <Header/>
-        <Listagens/>
-      </View>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+      <Stack.Screen name="Categorias" component={Categorias} options={{ title: 'Loja de luminárias' }} />
+      <Stack.Screen name="Detalhes" component={Detalhes} />
+    </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
@@ -28,5 +31,5 @@ const styles = StyleSheet.create({
   }
 });
 
-export default LotsOfStyles;
+export default App;
 

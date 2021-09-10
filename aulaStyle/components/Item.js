@@ -1,14 +1,13 @@
 import React from 'react';
-import { View, Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 const Item = ({ item, navigation }) => (
-    <TouchableOpacity style={styles.button}>
-        <View style={styles.container}>
-            <View style={styles.categoria} >
-                <Image source={item.imageSrc} style={styles.categoriaImage} resizeMode="contain" />
-                <Text style={styles.categoriaText}>{item.title}</Text>
-            </View>
-        </View>
+    <TouchableOpacity style={styles.categoria}
+        onPress={() =>
+            navigation.navigate('Detalhes', { item })
+        }>            
+        <Image source={item.imageSrc} style={styles.categoriaImage} resizeMode="contain" />
+        <Text style={styles.categoriaText}>{item.title}</Text>
     </TouchableOpacity>
 );
 
@@ -33,7 +32,17 @@ const styles = StyleSheet.create({
     },
     categoriaText: {
         color: '#a3a3a3'
-    }
+    },
+    // items: {
+    //     height: 150,
+    //     width: 150,
+    //     backgroundColor: 'white',
+    //     flex: 1,
+    //     borderRadius: 10,
+    //     justifyContent: 'center',
+    //     alignItems: 'center',
+    //     margin: 4
+    // }
 });
 
 export default Item;

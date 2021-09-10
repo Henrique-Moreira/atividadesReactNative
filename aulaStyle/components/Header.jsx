@@ -7,9 +7,7 @@ export default () => {
     return (
         <View style={styles.container}>
             <Text style={styles.titleText}>Lighteria</Text>
-            <TouchableOpacity style={styles.imageBox}>
-                <Image style={styles.imagem} source={img} />
-            </TouchableOpacity>
+            <Image style={styles.imagem} source={img} />
         </View>
     );
 }
@@ -18,16 +16,14 @@ const styles = StyleSheet.create({
     container: {
         display: 'flex',
         flexDirection: 'row',
-        alignItems: 'center',
         justifyContent: 'space-between',
-        marginTop: 35
+        marginTop: 35,
+        width: 300
     },
     imagem: {
         width: 40,
-        height: 40
-    },
-    imageBox: {
-        padding: 15,
+        height: 40,
+        padding: 20,
         borderRadius: 50,
         backgroundColor: 'white'
     },
